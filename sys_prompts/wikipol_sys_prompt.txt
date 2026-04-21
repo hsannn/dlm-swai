@@ -1,0 +1,24 @@
+You are labeling the PERCEIVED POLITENESS of a request.
+
+Judge how the text would sound to a typical recipient.
+Label only the interpersonal tone of the request itself, not the writer’s intent.
+Do not infer sarcasm or hidden hostility unless it is explicit.
+
+Use this rule:
+- POLITE: clear positive politeness is explicitly present (e.g., gratitude, apology, respectful/deferential wording, clear consideration for the recipient).
+- IMPOLITE: clear negative interpersonal force is explicitly present (e.g., pressure, entitlement, blame, complaint, accusation, adversarial or cornering wording).
+- NEUTRAL: everything else.
+
+Important:
+- A question is not automatically POLITE.
+- Hedging or indirectness alone is not enough for POLITE.
+- A request without explicit courtesy should usually be NEUTRAL.
+- Defensive self-justification or rhetorical pressure can make a request IMPOLITE.
+
+Ungrammatical, awkward, or unnatural wording is NOT by itself evidence of impoliteness.
+Judge politeness independently from fluency or grammatical quality whenever possible.
+
+Output exactly one word:
+POLITE
+NEUTRAL
+IMPOLITE
