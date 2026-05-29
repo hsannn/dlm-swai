@@ -84,7 +84,7 @@ def _model_forward(
     attention_mask: torch.Tensor = None,
 ) -> torch.Tensor:
     """Model-specific forward pass returning logits [B, seq_len, vocab_size]."""
-    if model_tag == "dream7b":
+    if model_tag.startswith("dream7b"):
         if attention_mask is not None and (attention_mask == 0).any():
             # Compute 2-D attention mask and token position indices for padded batches.
             attn = attention_mask.float()
@@ -338,7 +338,7 @@ if __name__ == "__main__":
         trust_remote_code=True,
         torch_dtype=torch.float16 if device.type == "cuda" else torch.float32,
     )
-    if args.model_tag == "llada8b":
+    if args.model_tag.startswith("llada8b"):
         model = AutoModelForCausalLM.from_pretrained(args.model_name, **model_kwargs)
     else:  # dream7b
         model = AutoModel.from_pretrained(args.model_name, **model_kwargs)
@@ -525,7 +525,7 @@ if __name__ == "__main__":
 
             # Filter out mask tokens and any IDs the tokenizer can't decode
             gen_ids = gen_ids[gen_ids != mask_token_id]
-            if args.model_tag == "dream7b":
+            if args.model_tag.startswith("dream7b"):
                 valid_mask = torch.tensor(
                     [tokenizer._convert_id_to_token(int(tid)) is not None for tid in gen_ids],
                     dtype=torch.bool,

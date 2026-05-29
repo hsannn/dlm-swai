@@ -319,6 +319,12 @@ if __name__ == "__main__":
         default="./lookup/llada8b/real_tox_4000",
         help="Output directory for score files"
     )
+    parser.add_argument(
+        "--alpha",
+        type=float,
+        default=0.01,
+        help="Dirichlet prior coefficient for log-odds smoothing (default: 0.01)"
+    )
     args = parser.parse_args()
     
     tokenizer = AutoTokenizer.from_pretrained(args.tokenizer, trust_remote_code=True, torch_dtype="auto")
@@ -334,7 +340,7 @@ if __name__ == "__main__":
             max_tokens_per_doc=None,
         ),
         logodds_cfg=LogOddsConfig(
-            alpha=0.01,
+            alpha=args.alpha,
             prior_mode="pooled",  # or "uniform"
             compute_z=True,
         ),
