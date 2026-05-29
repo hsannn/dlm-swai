@@ -128,9 +128,7 @@ DLM-SWAI/
 ├── build_scores.py          # Step 1: corpus → per-token score table
 ├── dlm_logit_steering.py    # Step 2: steered DLM generation
 ├── eval_*.py                # Step 3: evaluation suite
-├── datasets/                # WikiPol, RealToxicity, OSE
 ├── sys_prompts/             # GPT-judge prompts
-├── baselines/               # ILRR, activation steering, prompt-only
 ├── run_llada.sh / run_dream.sh / run_ablation.sh
 ```
 

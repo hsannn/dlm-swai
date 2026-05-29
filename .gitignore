@@ -205,3 +205,22 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Custom
+*.png
+!assets/*.png
+baselines/
+datasets/
+eval_data/
+eval_data_activation_steering/
+eval_data_prompt_only/
+eval_results/
+gpt_judge_results/
+gpt_judge_results_activation_steering/
+gpt_judge_results_prompt_only/
+lookup_scores/
+outputs/
+outputs_activation_steering/
+outputs_prompt_only/
+*.ipynb
+human_eval/
